@@ -54,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
                 double net_monthly = salary_with_bonus - total_deductions;
 
                 String output = String.format(
-                        "Base Monthly Salary: $%.2f\nPer Day Salary: $%.2f\nLeave Days: %d\nLeave Deduction: $%.2f\n" +
-                        "5th Monday Bonus: $%.2f\nSalary with Bonus: $%.2f\nTax Deduction: $%.2f\nMedical Deduction: $%.2f\n" +
-                        "PF Deduction (10%%): $%.2f\nDabba Deduction: $%.2f\nTotal Deductions: $%.2f\nNet Monthly Salary: $%.2f",
+                        "Base Monthly Salary: ₹%.2f\nPer Day Salary: ₹%.2f\nLeave Days: %d\nLeave Deduction: ₹%.2f\n" +
+                        "5th Monday Bonus: ₹%.2f\nSalary with Bonus: ₹%.2f\nTax Deduction: ₹%.2f\nMedical Deduction: ₹%.2f\n" +
+                        "PF Deduction (10%%): ₹%.2f\nDabba Deduction: ₹%.2f\nTotal Deductions: ₹%.2f\nNet Monthly Salary: ₹%.2f",
                         base_salary, per_day_salary, leave_days, leave_deduction,
                         fifth_monday_bonus, salary_with_bonus, tax_amount, medical_amount,
                         pf_deduction, dabba_deduction, total_deductions, net_monthly
