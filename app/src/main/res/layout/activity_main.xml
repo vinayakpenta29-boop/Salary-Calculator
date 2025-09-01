@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/baseSalary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Monthly Salary ($)"
+            android:backgroundTint="@color/purple_200"/>
+
+        <EditText
+            android:id="@+id/taxAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Tax Amount ($)"
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/medicalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Medical Deduction ($)"
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Year (YYYY)"
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Month (1-12)"
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/leaveDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Leave Days"
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/dabbaUnits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Dabba Units"
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate Salary"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/purple_700"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
