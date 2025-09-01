@@ -2,118 +2,156 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/primary_bg"
     android:padding="16dp">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
 
-        <!-- CardView for all inputs -->
+        <!-- CardView: Input Area -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="8dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/purple_200">
+            app:cardCornerRadius="20dp"
+            android:elevation="12dp"
+            android:backgroundTint="@color/card_bg"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:padding="16dp"
+                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/baseSalary"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
                     android:hint="Monthly Salary (₹)"
-                    android:backgroundTint="@color/purple_200"/>
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="18sp"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="sans-serif-medium"/>
 
                 <EditText
                     android:id="@+id/taxAmount"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
                     android:hint="Tax Amount (₹)"
-                    android:backgroundTint="@color/purple_200"
-                    android:layout_marginTop="8dp"/>
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="18sp"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="sans-serif-medium"/>
 
                 <EditText
                     android:id="@+id/medicalAmount"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
                     android:hint="Medical Deduction (₹)"
-                    android:backgroundTint="@color/purple_200"
-                    android:layout_marginTop="8dp"/>
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="18sp"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="sans-serif-medium"/>
 
                 <EditText
                     android:id="@+id/year"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
                     android:hint="Year (YYYY)"
-                    android:backgroundTint="@color/purple_200"
-                    android:layout_marginTop="8dp"/>
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="18sp"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="sans-serif-medium"/>
 
                 <EditText
                     android:id="@+id/month"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
                     android:hint="Month (1-12)"
-                    android:backgroundTint="@color/purple_200"
-                    android:layout_marginTop="8dp"/>
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="18sp"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="sans-serif-medium"/>
 
                 <EditText
                     android:id="@+id/leaveDays"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
                     android:hint="Leave Days"
-                    android:backgroundTint="@color/purple_200"
-                    android:layout_marginTop="8dp"/>
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="18sp"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="sans-serif-medium"/>
 
                 <EditText
                     android:id="@+id/dabbaUnits"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
                     android:hint="Dabba Units"
-                    android:backgroundTint="@color/purple_200"
-                    android:layout_marginTop="8dp"/>
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="18sp"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="18dp"
+                    android:fontFamily="sans-serif-medium"/>
 
-                <Button
+                <!-- Accent Action Button -->
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/calculateButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:text="Calculate Salary"
                     android:textColor="@color/white"
-                    android:backgroundTint="@color/purple_700"
-                    android:layout_marginTop="16dp"/>
+                    android:textSize="18sp"
+                    android:backgroundTint="@color/accent_orange"
+                    android:fontFamily="sans-serif-bold"
+                    app:cornerRadius="28dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Result CardView -->
+        <!-- CardView: Result Area -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
             android:elevation="12dp"
-            android:backgroundTint="@color/purple_200"
+            android:backgroundTint="@color/card_bg"
             android:layout_marginBottom="32dp">
 
             <TextView
                 android:id="@+id/resultText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:padding="16dp"
-                android:text="" />
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="20dp"
+                android:text=""
+                android:fontFamily="sans-serif-medium"/>
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
 </ScrollView>
