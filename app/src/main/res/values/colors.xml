@@ -1,10 +1,7 @@
 <resources>
-    <color name="purple_700">#6200EE</color>
-    <color name="purple_200">#BB86FC</color>
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
-    <color name="box_bg_dark">#282C3A</color>
-    <color name="accent_orange">#FF8B2A</color>
-    <color name="white">#FFFFFF</color>
-    
+    <color name="primary_bg">#23253A</color>         <!-- deep navy for background -->
+    <color name="card_bg">#2E3147</color>           <!-- slightly lighter for cards -->
+    <color name="accent_orange">#FF8B2A</color>     <!-- bold accent for button -->
+    <color name="white">#FFFFFF</color>             <!-- text color -->
+    <color name="text_hint">#B2FFFFFF</color>       <!-- hint (semi-transparent white) -->
 </resources>
