@@ -4,4 +4,7 @@
     <color name="accent_orange">#FF8B2A</color>     <!-- bold accent for button -->
     <color name="white">#FFFFFF</color>             <!-- text color -->
     <color name="text_hint">#B2FFFFFF</color>       <!-- hint (semi-transparent white) -->
+    <color name="purple_700">#6200EE</color>        <!-- required for compatibility -->
+    <color name="purple_200">#BB86FC</color>        <!-- required for compatibility -->
+    <color name="black">#000000</color>             <!-- required for compatibility -->
 </resources>
