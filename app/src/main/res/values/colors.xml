@@ -3,4 +3,8 @@
     <color name="purple_200">#BB86FC</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="box_bg_dark">#282C3A</color>
+    <color name="accent_orange">#FF8B2A</color>
+    <color name="white">#FFFFFF</color>
+    
 </resources>
