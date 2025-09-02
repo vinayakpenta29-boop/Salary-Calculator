@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -202,6 +202,255 @@
         </androidx.cardview.widget.CardView>
 
         <!-- Curved orange box for net salary final line (bold) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="28dp"
+            android:elevation="10dp"
+            android:backgroundTint="@color/accent_orange"
+            android:layout_marginBottom="32dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/netSalaryDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You will receive Net Monthly Salary"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/netSalaryAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹0.00"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-bold"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_bg"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <!-- Monthly Salary -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            android:backgroundTint="@color/card_bg"
+            android:layout_marginBottom="12dp">
+
+            <EditText
+                android:id="@+id/baseSalary"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@android:color/transparent"
+                android:hint="Monthly Salary (₹)"
+                android:inputType="numberDecimal"
+                android:textColor="@color/white"
+                android:textColorHint="@color/text_hint"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:padding="16dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Tax Amount -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            android:backgroundTint="@color/card_bg"
+            android:layout_marginBottom="12dp">
+
+            <EditText
+                android:id="@+id/taxAmount"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@android:color/transparent"
+                android:hint="Tax Amount (₹)"
+                android:inputType="numberDecimal"
+                android:textColor="@color/white"
+                android:textColorHint="@color/text_hint"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:padding="16dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Medical Deduction -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            android:backgroundTint="@color/card_bg"
+            android:layout_marginBottom="12dp">
+
+            <EditText
+                android:id="@+id/medicalAmount"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@android:color/transparent"
+                android:hint="Medical Deduction (₹)"
+                android:inputType="numberDecimal"
+                android:textColor="@color/white"
+                android:textColorHint="@color/text_hint"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:padding="16dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Year -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            android:backgroundTint="@color/card_bg"
+            android:layout_marginBottom="12dp">
+
+            <EditText
+                android:id="@+id/year"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@android:color/transparent"
+                android:hint="Year (YYYY)"
+                android:inputType="number"
+                android:textColor="@color/white"
+                android:textColorHint="@color/text_hint"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:padding="16dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Month -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            android:backgroundTint="@color/card_bg"
+            android:layout_marginBottom="12dp">
+
+            <EditText
+                android:id="@+id/month"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@android:color/transparent"
+                android:hint="Month (1-12)"
+                android:inputType="number"
+                android:textColor="@color/white"
+                android:textColorHint="@color/text_hint"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:padding="16dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Leave Days (now supports decimals!) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            android:backgroundTint="@color/card_bg"
+            android:layout_marginBottom="12dp">
+
+            <EditText
+                android:id="@+id/leaveDays"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@android:color/transparent"
+                android:hint="Leave Days"
+                android:inputType="numberDecimal"
+                android:textColor="@color/white"
+                android:textColorHint="@color/text_hint"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:padding="16dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Dabba Units -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            android:backgroundTint="@color/card_bg"
+            android:layout_marginBottom="18dp">
+
+            <EditText
+                android:id="@+id/dabbaUnits"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@android:color/transparent"
+                android:hint="Dabba Units"
+                android:inputType="number"
+                android:textColor="@color/white"
+                android:textColorHint="@color/text_hint"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:padding="16dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Calculate Salary Button (with shrink animation) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/calculateButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Calculate Salary"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:backgroundTint="@color/accent_orange"
+            android:fontFamily="sans-serif-bold"
+            app:cornerRadius="28dp"
+            android:layout_marginBottom="18dp"
+            android:layout_gravity="center"
+            android:stateListAnimator="@animator/button_press_scale"/>
+
+        <!-- Result output lines except net salary: use a vertical LinearLayout for dynamic dividers -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            android:backgroundTint="@color/card_bg"
+            android:layout_marginBottom="18dp">
+
+            <LinearLayout
+                android:id="@+id/resultLinesLayout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Curved orange box for net salary final line -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
