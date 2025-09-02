@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import java.util.Calendar;
 
@@ -15,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText baseSalary, taxAmount, medicalAmount, year, month, leaveDays, dabbaUnits;
     Button calculate;
-    TextView result, netSalaryDescription, netSalaryAmount;
+    TextView netSalaryDescription, netSalaryAmount;
+    LinearLayout resultLinesLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +31,8 @@ public class MainActivity extends AppCompatActivity {
         month = findViewById(R.id.month);
         leaveDays = findViewById(R.id.leaveDays);
         dabbaUnits = findViewById(R.id.dabbaUnits);
-
         calculate = findViewById(R.id.calculateButton);
-        result = findViewById(R.id.resultText);
+        resultLinesLayout = findViewById(R.id.resultLinesLayout);
         netSalaryDescription = findViewById(R.id.netSalaryDescription);
         netSalaryAmount = findViewById(R.id.netSalaryAmount);
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 double medical_amount = Double.parseDouble(medicalAmount.getText().toString());
                 int yr = Integer.parseInt(year.getText().toString());
                 int mnth = Integer.parseInt(month.getText().toString());
-                int leave_days = Integer.parseInt(leaveDays.getText().toString());
+                double leave_days = Double.parseDouble(leaveDays.getText().toString());
                 int dabba_units = Integer.parseInt(dabbaUnits.getText().toString());
                 int dabba_unit_cost = 30;
 
@@ -56,23 +57,45 @@ public class MainActivity extends AppCompatActivity {
                 double net_monthly = salary_with_bonus - total_deductions;
 
                 String[] lines = {
-                        String.format("Base Monthly Salary: ₹%.2f", base_salary),
-                        String.format("Per Day Salary: ₹%.2f", per_day_salary),
-                        String.format("Leave Days: %d", leave_days),
-                        String.format("Leave Deduction: ₹%.2f", leave_deduction),
-                        String.format("5th Monday Bonus: ₹%.2f", fifth_monday_bonus),
-                        String.format("Salary with Bonus: ₹%.2f", salary_with_bonus),
-                        String.format("Tax Deduction: ₹%.2f", tax_amount),
-                        String.format("Medical Deduction: ₹%.2f", medical_amount),
-                        String.format("PF Deduction (10%%): ₹%.2f", pf_deduction),
-                        String.format("Dabba Deduction: ₹%.2f", dabba_deduction),
-                        String.format("Total Deductions: ₹%.2f", total_deductions)
+                    String.format("Base Monthly Salary : ₹%.2f", base_salary),
+                    String.format("Per Day Salary : ₹%.2f", per_day_salary),
+                    String.format("Leave Days : %s", leave_days),
+                    String.format("Leave Deduction : ₹%.2f", leave_deduction),
+                    String.format("5th Monday Bonus : ₹%.2f", fifth_monday_bonus),
+                    String.format("Salary with Bonus : ₹%.2f", salary_with_bonus),
+                    String.format("Tax Deduction : ₹%.2f", tax_amount),
+                    String.format("Medical Deduction : ₹%.2f", medical_amount),
+                    String.format("PF Deduction (10%%) : ₹%.2f", pf_deduction),
+                    String.format("Dabba Deduction : ₹%.2f", dabba_deduction),
+                    String.format("Total Deductions : ₹%.2f", total_deductions)
                 };
-                StringBuilder sb = new StringBuilder();
-                for (String line : lines) {
-                    sb.append(line).append("\n");
+
+                // Remove all previous lines first
+                resultLinesLayout.removeAllViews();
+
+                // Add TextView and Divider for every line except last divider
+                for (int i = 0; i < lines.length; i++) {
+                    TextView lineView = new TextView(this);
+                    lineView.setLayoutParams(new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT));
+                    lineView.setText(lines[i]);
+                    lineView.setTextColor(getResources().getColor(R.color.white));
+                    lineView.setTextSize(18);
+                    lineView.setPadding(0, 8, 0, 8);
+                    lineView.setTypeface(lineView.getTypeface(), android.graphics.Typeface.BOLD);
+                    resultLinesLayout.addView(lineView);
+
+                    if (i < lines.length - 1) {
+                        View divider = new View(this);
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT, 2);
+                        params.setMargins(0, 4, 0, 4);
+                        divider.setLayoutParams(params);
+                        divider.setBackgroundColor(getResources().getColor(R.color.text_hint));
+                        resultLinesLayout.addView(divider);
+                    }
                 }
-                result.setText(sb.toString().trim());
 
                 netSalaryDescription.setText("You will receive Net Monthly Salary");
                 netSalaryAmount.setText("₹" + String.format("%.2f", net_monthly));
