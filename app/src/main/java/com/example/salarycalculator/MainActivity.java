@@ -90,23 +90,44 @@ public class MainActivity extends AppCompatActivity {
                 double salary_with_bonus = base_salary + fifth_monday_bonus;
                 double salary_with_bonus_and_scheme = salary_with_bonus + scheme_add;
                 double dabba_deduction = dabba_units * dabba_unit_cost;
-                double leave_deduction = per_day_salary * leave_days;
+
+                // ----- Leave Logic -----
+                double leave_income = 0.0;
+                double leave_deduction = 0.0;
+                String leaveDisplayLine = "";
+                if (leave_days == 4.0) {
+                    leave_income = 0.0;
+                    leave_deduction = 0.0;
+                    leaveDisplayLine = "No Leave Adjustment";
+                } else if (leave_days < 4.0) {
+                    double reward_days = 4.0 - leave_days;
+                    leave_income = per_day_salary * reward_days;
+                    leave_deduction = 0.0;
+                    leaveDisplayLine = String.format("Leave Income : ₹%.2f", leave_income);
+                } else {
+                    double deduction_days = leave_days - 4.0;
+                    leave_income = 0.0;
+                    leave_deduction = per_day_salary * deduction_days;
+                    leaveDisplayLine = String.format("Leave Deduction : ₹%.2f", leave_deduction);
+                }
+                // ----- End Leave Logic -----
+
                 double total_deductions = tax_amount + medical_amount + pf_deduction + dabba_deduction + leave_deduction;
-                double net_monthly = salary_with_bonus_and_scheme - total_deductions;
+                double net_monthly = salary_with_bonus_and_scheme + leave_income - total_deductions;
 
                 String[] lines = {
-                    String.format("Base Monthly Salary : ₹%.2f", base_salary),
-                    String.format("Per Day Salary : ₹%.2f", per_day_salary),
-                    String.format("Leave Days : %s", leave_days),
-                    String.format("Leave Deduction : ₹%.2f", leave_deduction),
-                    String.format("5th Monday Bonus : ₹%.2f", fifth_monday_bonus),
-                    String.format("Scheme Amount : ₹%.2f", scheme_add),
-                    String.format("Salary with Bonus : ₹%.2f", salary_with_bonus_and_scheme),
-                    String.format("Tax Deduction : ₹%.2f", tax_amount),
-                    String.format("Medical Deduction : ₹%.2f", medical_amount),
-                    String.format("PF Deduction (10%%) : ₹%.2f", pf_deduction),
-                    String.format("Dabba Deduction : ₹%.2f", dabba_deduction),
-                    String.format("Total Deductions : ₹%.2f", total_deductions)
+                        String.format("Base Monthly Salary : ₹%.2f", base_salary),
+                        String.format("Per Day Salary : ₹%.2f", per_day_salary),
+                        String.format("Leave Days : %s", leave_days),
+                        leaveDisplayLine,
+                        String.format("5th Monday Bonus : ₹%.2f", fifth_monday_bonus),
+                        String.format("Scheme Amount : ₹%.2f", scheme_add),
+                        String.format("Salary with Bonus : ₹%.2f", salary_with_bonus_and_scheme),
+                        String.format("Tax Deduction : ₹%.2f", tax_amount),
+                        String.format("Medical Deduction : ₹%.2f", medical_amount),
+                        String.format("PF Deduction (10%%) : ₹%.2f", pf_deduction),
+                        String.format("Dabba Deduction : ₹%.2f", dabba_deduction),
+                        String.format("Total Deductions : ₹%.2f", total_deductions)
                 };
 
                 resultLinesLayout.removeAllViews();
