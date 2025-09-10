@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText baseSalary, taxAmount, medicalAmount, year, month, leaveDays, dabbaUnits, schemeAmount;
     Button calculate;
-    TextView netSalaryDescription, netSalaryAmount;
+    TextView netSalaryDescription, netSalaryAmount, createdByLine;
     LinearLayout resultLinesLayout;
     RadioGroup pfRadioGroup, schemeRadioGroup;
     RadioButton pfYes, pfNo, schemeYes, schemeNo;
@@ -45,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
         schemeNo = findViewById(R.id.schemeNo);
         schemeAmount = findViewById(R.id.schemeAmount);
 
+        calculate = findViewById(R.id.calculateButton);
+        resultLinesLayout = findViewById(R.id.resultLinesLayout);
+        netSalaryDescription = findViewById(R.id.netSalaryDescription);
+        netSalaryAmount = findViewById(R.id.netSalaryAmount);
+
+        // "Created by RP" line binding
+        createdByLine = findViewById(R.id.createdByLine);
+
         schemeRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.schemeYes) {
                 schemeAmount.setVisibility(View.VISIBLE);
@@ -53,11 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 schemeAmount.setText("");
             }
         });
-
-        calculate = findViewById(R.id.calculateButton);
-        resultLinesLayout = findViewById(R.id.resultLinesLayout);
-        netSalaryDescription = findViewById(R.id.netSalaryDescription);
-        netSalaryAmount = findViewById(R.id.netSalaryAmount);
 
         calculate.setOnClickListener(v -> {
             try {
@@ -156,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
 
                 netSalaryDescription.setText("You will receive Net Monthly Salary");
                 netSalaryAmount.setText("₹" + String.format("%.2f", net_monthly));
+
+                // Show "Created by RP" line after calculation
+                createdByLine.setVisibility(View.VISIBLE);
 
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Please fill all fields correctly!", Toast.LENGTH_SHORT).show();
