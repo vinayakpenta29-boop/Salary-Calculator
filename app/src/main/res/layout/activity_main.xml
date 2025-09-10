@@ -330,5 +330,19 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- Created by RP line, hidden by default, appears after calculation -->
+        <TextView
+            android:id="@+id/createdByLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Created by RP"
+            android:textColor="@color/text_hint"
+            android:textSize="8sp"
+            android:gravity="center"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
     </LinearLayout>
 </ScrollView>
