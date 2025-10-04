@@ -2,7 +2,9 @@ package com.example.salarycalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        showPasswordDialog();
+
         setContentView(R.layout.activity_main);
 
         baseSalary = findViewById(R.id.baseSalary);
@@ -167,6 +175,37 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Please fill all fields correctly!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    // Password dialog (12hr format)
+    private void showPasswordDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter Password");
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+        input.setHint("Current time (hhmm, 12hr format)");
+
+        builder.setView(input);
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            String entered = input.getText().toString().trim();
+            String correctPassword = getCurrentTimePassword();
+            if (entered.equals(correctPassword)) {
+                dialog.dismiss();
+            } else {
+                Toast.makeText(this, "Incorrect password. Try again.", Toast.LENGTH_SHORT).show();
+                showPasswordDialog();
+            }
+        });
+
+        builder.show();
+    }
+
+    private String getCurrentTimePassword() {
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("hhmm", java.util.Locale.getDefault());
+        return sdf.format(new java.util.Date());
     }
 
     private boolean hasFifthMonday(int year, int month) {
