@@ -184,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
-        input.setHint("Current time (hhmm, 12hr format)");
 
         builder.setView(input);
         builder.setCancelable(false);
