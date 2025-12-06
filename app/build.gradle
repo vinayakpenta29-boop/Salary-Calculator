@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.tripexpensecalculator'
+    namespace 'com.example.salarycalculator'
     compileSdk 34
 
     defaultConfig {
